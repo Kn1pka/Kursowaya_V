@@ -26,9 +26,9 @@ namespace Kursowaya_V
         private int matchedPairs = 0; // Количество найденных пар
         private bool isPaused = false; // Флаг паузы
 
-        // Переменные для рекордов
-        private int bestTime = 0;    // 0 = рекорд ещё не установлен
-        private int bestMoves = 0;   // 0 = рекорд ещё не установлен
+        // Переменные для рекордов (public для тестов)
+        public int bestTime = 0;    // 0 = рекорд ещё не установлен
+        public int bestMoves = 0;   // 0 = рекорд ещё не установлен
 
         public Form1()
         {
@@ -55,7 +55,7 @@ namespace Kursowaya_V
         }
 
         // Метод запуска/перезапуска игры
-        private void StartGame(int size)
+        public void StartGame(int size)
         {
             gridSize = size;
             matchedPairs = 0;
@@ -219,8 +219,8 @@ namespace Kursowaya_V
             }
         }
 
-        // Проверка и обновление рекордов
-        private void CheckRecords()
+        // Проверка и обновление рекордов (PUBLIC для тестов!)
+        public void CheckRecords()
         {
             // Проверка времени
             if (bestTime == 0 || seconds < bestTime)
@@ -277,8 +277,8 @@ namespace Kursowaya_V
             lblTime.Text = $"Время: {seconds}";
         }
 
-        // Перемешивание списка (алгоритм Фишера-Йейтса)
-        private void Shuffle(List<string> list)
+        // Перемешивание списка (алгоритм Фишера-Йейтса) — PUBLIC для тестов!
+        public void Shuffle(List<string> list)
         {
             Random rng = new Random();
             int n = list.Count;
