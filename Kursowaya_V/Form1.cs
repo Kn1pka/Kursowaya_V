@@ -10,13 +10,24 @@ namespace Kursowaya_V
     public partial class Form1 : Form
     {
         // База эмодзи (50 штук, без пропусков)
-        private readonly string[] Emojis = {
+private readonly string[] Emojis = {
             "🐶", "🐱", "🐭", "🍎", "🐰", "🦊", "🐻", "🍊", "🐨", "🐯",
             "🦁", "🍋", "🐷", "🐸", "🐵", "🍌", "🍉", "🐦", "🐤", "🦆",
             "🦅", "🦉", "🦇", "🍇", "🐗", "🐴", "🦄", "🍒", "🐛", "🦋",
             "🐌", "🐞", "🐜", "🍓", "🦗", "🕷", "🦂", "🍑", "🐍", "🦎",
             "🦖", "🦕", "🐙", "❤️", "💔", "🦞", "🦀", "🐡", "🐠", "🍍"
         };
+
+        // Public accessor for tests
+        public string[] GetEmojis() => Emojis;
+
+        // Public accessors for unit tests
+        [System.ComponentModel.Browsable(false)]
+        public int MoveCount { get => moveCount; set => moveCount = value; }
+        [System.ComponentModel.Browsable(false)]
+        public int Seconds { get => seconds; set => seconds = value; }
+        [System.ComponentModel.Browsable(false)]
+        public int GridSize => gridSize;
 
         private int gridSize = 4; // Текущий размер сетки (4, 8 или 10)
         private int moveCount = 0; // Счётчик ходов
